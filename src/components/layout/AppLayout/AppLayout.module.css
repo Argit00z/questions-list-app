@@ -1,0 +1,7 @@
+.container {
+	display: flex;
+	padding: 40px;
+	justify-content: center;
+	gap: 1rem;
+	min-height: calc(100vh - 237px);
+}
