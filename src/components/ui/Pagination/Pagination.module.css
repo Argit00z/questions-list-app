@@ -5,3 +5,39 @@
 	gap: 1rem;
 	align-items: center;
 }
+
+.arrow {
+	border: solid 1px #6a0bff;
+	padding: 1px 2px 1px 2px;
+	border-radius: 100px;
+	cursor: pointer;
+	&:disabled {
+		border: solid 1px #e8e8e8;
+		cursor: not-allowed;
+	}
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+}
+
+.pageNumber {
+	padding: 2px;
+}
+
+.pageNumber.active {
+	background-color: #6a0bff;
+	color: #ffff;
+	border-radius: 3px;
+	padding: 1px 4px 1px 4px;
+}
+
+.dots {
+	padding: 4px;
+	color: #a0a0a0;
+	display: inline-flex;
+	align-items: center;
+}

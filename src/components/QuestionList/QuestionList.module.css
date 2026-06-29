@@ -1,4 +1,10 @@
-.mainContainer {
+.title {
+	font-size: 24px;
+	border-bottom: solid #e8e8e8 0.5px;
+	padding: 0 10px 16px 0;
+}
+
+.questionList {
 	display: flex;
 	width: 804px;
 	background-color: #ffffff;

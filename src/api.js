@@ -8,11 +8,12 @@ const client = axios.create({
 })
 
 export async function getQuestions(params = {}) {
-	const { page = 1, limit = 10, ...filters } = params
+	const { page = 1, limit = 10, keywords, ...filters } = params
 	const response = await client.get('/questions/public-questions', {
 		params: {
 			page,
 			limit,
+			keywords,
 			...filters
 		}
 	})

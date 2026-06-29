@@ -1,50 +1,63 @@
-import icon from '../../../assets/images/loupe.svg'
 import styles from '../AppSidebar/AppSidebar.module.css'
+import FilterWrapper from './FilterWrapper/FilterWrapper'
+import InputWrapper from './InputWrapper/InputWrapper'
 
-function AppSidebar({ filters, onFilterChange }) {
-	const mockSpecializations = [
-		{ id: 1, name: 'UI/UX design' },
-		{ id: 2, name: 'Design' },
-		{ id: 3, name: 'Frontend' },
-		{ id: 4, name: 'Backend' },
-		{ id: 5, name: 'QA' },
-		{ id: 11, name: 'React' }
+function AppSidebar({
+	filters,
+	onFilterChange,
+	specializations,
+	skills,
+	isLoading
+}) {
+	const complexityItems = [
+		{ id: '1-3', title: '1-3' },
+		{ id: '4-6', title: '4-6' },
+		{ id: '7-8', title: '7-8' },
+		{ id: '9-10', title: '9-10' }
 	]
 
+	const ratingItems = [
+		{ id: 1, title: '1' },
+		{ id: 2, title: '2' },
+		{ id: 3, title: '3' },
+		{ id: 4, title: '4' },
+		{ id: 5, title: '5' }
+	]
 	return (
 		<>
 			<div className={styles.mainContainer}>
-				<div className={styles.inputWrapper}>
-					<img
-						className={styles.searchIcon}
-						src={icon}
-						alt=""
-					/>
-					<input
-						className={styles.input}
-						placeholder="Введите вопрос…"
-						value={filters.search}
-						onChange={e => onFilterChange('search', e.target.value)}
-					/>
-				</div>
-				<div className={styles.categoryWrapper}>
-					<h2 className={styles.categoryTitle}>Специализация</h2>
-					<div className={styles.chipContainer}>
-						{mockSpecializations.map(spec => {
-							const isActive = filters.specializationId === spec.id
-
-							return (
-								<div
-									key={spec.id}
-									onClick={() => onFilterChange('specializationId', spec.id)}
-									className={`${styles.chipWrapper} ${isActive ? styles.active : ''}`}
-								>
-									{spec.name}
-								</div>
-							)
-						})}
-					</div>
-				</div>
+				<InputWrapper
+					value={filters.search}
+					onChange={onFilterChange}
+				/>
+				<FilterWrapper
+					items={specializations}
+					title={'Специализация'}
+					onFilterChange={onFilterChange}
+					filterName={'specializationId'}
+					selectedValues={filters.specializationId}
+				/>
+				<FilterWrapper
+					items={skills}
+					title={'Выберите навыки'}
+					onFilterChange={onFilterChange}
+					filterName={'skillIds'}
+					selectedValues={filters.skillIds}
+				/>
+				<FilterWrapper
+					items={complexityItems}
+					title={'Сложность'}
+					onFilterChange={onFilterChange}
+					filterName={'complexity'}
+					selectedValues={filters.complexity}
+				/>
+				<FilterWrapper
+					items={ratingItems}
+					title={'Рейтинг вопросов'}
+					onFilterChange={onFilterChange}
+					filterName={'rating'}
+					selectedValues={filters.rating}
+				/>
 			</div>
 		</>
 	)

@@ -1,0 +1,23 @@
+.input {
+	&:focus {
+		outline: none;
+	}
+}
+
+.inputWrapper {
+	display: flex;
+	align-items: center;
+	border: solid 0.5px #e8e8e8;
+	border-radius: 12px;
+	gap: 8px;
+	padding: 10px 20px 10px 20px;
+
+	&:focus-within {
+		border-color: #6a0bff;
+	}
+}
+
+.searchIcon {
+	width: 18px;
+	height: 18px;
+}
