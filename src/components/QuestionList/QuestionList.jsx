@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useAnimatedCards } from '../../hooks/useAnimatedCards'
 import QuestionCard from '../QuestionList/QuestionCard/QuestionCard'
 import styles from '../QuestionList/QuestionList.module.css'
 import Pagination from '../ui/Pagination/Pagination'
@@ -15,50 +15,14 @@ function QuestionList({
 	filters,
 	specializations
 }) {
-	const [openIds, setOpenIds] = useState([])
-	const [heights, setHeights] = useState({})
-	const cardRefs = useRef({})
-
 	const currentSpecialization = specializations.find(
 		spec => spec.id === filters.specializationId
 	)
 
-	useEffect(() => {
-		if (questions.length === 0) return
-
-		const newHeights = {}
-		questions.forEach(question => {
-			const element = cardRefs.current[question.id]
-			if (element) {
-				newHeights[question.id] = element.scrollHeight
-			}
-		})
-
-		setHeights(prev => {
-			const isChanged = Object.keys(newHeights).some(
-				key => prev[key] !== newHeights[key]
-			)
-			return isChanged ? newHeights : prev
-		})
-	}, [questions])
-
-	useEffect(() => {
-		setOpenIds([])
-	}, [currentPage])
-
-	const handleOpenDetails = id => {
-		setOpenIds(prevOpenIds => {
-			if (prevOpenIds.includes(id)) {
-				return prevOpenIds.filter(itemId => itemId !== id)
-			} else {
-				return [...prevOpenIds, id]
-			}
-		})
-	}
-
-	const onCardRef = (id, el) => {
-		cardRefs.current[id] = el
-	}
+	const { openIds, heights, handleOpenDetails, onCardRef } = useAnimatedCards(
+		questions,
+		currentPage
+	)
 
 	return (
 		<div className={styles.questionList}>

@@ -3,13 +3,7 @@ import styles from '../AppSidebar/AppSidebar.module.css'
 import FilterWrapper from './FilterWrapper/FilterWrapper'
 import InputWrapper from './InputWrapper/InputWrapper'
 
-function AppSidebar({
-	filters,
-	onFilterChange,
-	specializations,
-	skills,
-	isLoading
-}) {
+function AppSidebar({ filters, onFilterChange, specializations, skills }) {
 	return (
 		<>
 			<div className={styles.mainContainer}>

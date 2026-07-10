@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react'
 import icon from '../../../../assets/images/loupe.svg'
+import { useDebounce } from '../../../../hooks/useDebounce'
 import styles from '../InputWrapper/InputWrapper.module.css'
 
 function InputWrapper({ value, onChange }) {
 	const [localValue, setLocalValue] = useState(value)
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			onChange('search', localValue)
-		}, 500)
+	const debouncedSearchTerm = useDebounce(localValue, 500)
 
-		return () => clearTimeout(timer)
-	}, [localValue])
+	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
+		setLocalValue(value)
+	}, [value])
+
+	useEffect(() => {
+		onChange('search', debouncedSearchTerm)
+	}, [debouncedSearchTerm, onChange])
 
 	return (
 		<div className={styles.inputWrapper}>
