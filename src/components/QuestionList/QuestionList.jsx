@@ -19,7 +19,7 @@ function QuestionList({
 	const [heights, setHeights] = useState({})
 	const cardRefs = useRef({})
 
-	const specialization = specializations.filter(
+	const currentSpecialization = specializations.find(
 		spec => spec.id === filters.specializationId
 	)
 
@@ -47,11 +47,13 @@ function QuestionList({
 	}, [currentPage])
 
 	const handleOpenDetails = id => {
-		if (openIds.includes(id)) {
-			setOpenIds(openIds.filter(itemId => itemId !== id))
-		} else {
-			setOpenIds([...openIds, id])
-		}
+		setOpenIds(prevOpenIds => {
+			if (prevOpenIds.includes(id)) {
+				return prevOpenIds.filter(itemId => itemId !== id)
+			} else {
+				return [...prevOpenIds, id]
+			}
+		})
 	}
 
 	const onCardRef = (id, el) => {
@@ -61,7 +63,7 @@ function QuestionList({
 	return (
 		<div className={styles.questionList}>
 			<h1 className={styles.title}>
-				{!isLoading ? specialization[0].title : <Skeleton type={'item'} />}
+				{!isLoading ? currentSpecialization?.title : <Skeleton type={'item'} />}
 			</h1>
 
 			{questions.map(question => {
