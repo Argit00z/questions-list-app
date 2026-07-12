@@ -17,7 +17,11 @@ export async function getQuestions(params = {}) {
 			...filters
 		}
 	})
-	return response.data
+
+	return {
+		items: response.data?.data || [],
+		total: response.data?.total || 0
+	}
 }
 
 export async function getSpecializations(params = {}) {
@@ -29,7 +33,8 @@ export async function getSpecializations(params = {}) {
 			...filters
 		}
 	})
-	return response.data
+
+	return response.data?.data || []
 }
 
 export async function getSkills(params = {}) {
@@ -41,5 +46,6 @@ export async function getSkills(params = {}) {
 			...filters
 		}
 	})
-	return response.data
+
+	return response.data?.data || []
 }

@@ -30,7 +30,7 @@ function AppMain() {
 			try {
 				setIsQuestionsLoading(true)
 				const response = await getQuestions({ limit: 1000 })
-				setAllQuestions(response.data || [])
+				setAllQuestions(response.items)
 			} catch (error) {
 				console.error('Ошибка при загрузке вопросов:', error)
 			} finally {
@@ -44,12 +44,12 @@ function AppMain() {
 		const fetchInitialData = async () => {
 			try {
 				setIsSidebarLoading(true)
-				const [specResponse, skillsResponse] = await Promise.all([
+				const [specData, skillsData] = await Promise.all([
 					getSpecializations(),
 					getSkills()
 				])
-				setSpecializations(specResponse.data || [])
-				setSkills(skillsResponse.data || [])
+				setSpecializations(specData)
+				setSkills(skillsData)
 			} catch (error) {
 				console.error('Ошибка при загрузке данных сайдбара:', error)
 			} finally {
