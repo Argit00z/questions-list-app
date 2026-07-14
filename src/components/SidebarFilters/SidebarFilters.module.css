@@ -1,0 +1,9 @@
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	width: 360px;
+	background-color: #ffffff;
+	border-radius: 24px;
+	padding: 24px 20px 40px 20px;
+	gap: 24px;
+}

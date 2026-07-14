@@ -1,4 +1,6 @@
+import { Link } from 'react-router'
 import arrow from '../../../assets/images/arrow.svg'
+import arrowRight from '../../../assets/images/arrow_right.svg'
 import styles from '../QuestionCard/QuestionCard.module.css'
 import RenderAnswer from './RenderAnswer'
 
@@ -57,6 +59,15 @@ function QuestionCard({
 
 					<div className={styles.answer}>
 						<RenderAnswer answer={question.shortAnswer} />
+					</div>
+					<div className={styles.detailLink}>
+						<Link to={`${question.id}`}>Подробнее</Link>
+						<img
+							width={25}
+							height={25}
+							src={arrowRight}
+							alt="Вперед"
+						/>
 					</div>
 				</div>
 			</div>

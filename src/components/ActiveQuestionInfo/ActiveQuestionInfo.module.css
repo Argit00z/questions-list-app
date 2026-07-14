@@ -1,0 +1,41 @@
+.categoryWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.categoryTitle {
+	font-size: 14px;
+	font-weight: 400;
+	color: #474747;
+}
+
+.chipContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.chipWrapper {
+	padding: 6px 12px 6px 12px;
+	border: solid 1px #bababa;
+	border-radius: 12px;
+	max-width: max-content;
+	cursor: pointer;
+	&:hover {
+		background-color: #6a0bff;
+		border-color: #6a0bff;
+		color: #ffffff;
+	}
+}
+
+.active {
+	border: solid 1px #6a0bff;
+}
+
+.openAllBtn {
+	display: flex;
+	color: #6a0bff;
+	font-size: 14px;
+	text-decoration: underline;
+}

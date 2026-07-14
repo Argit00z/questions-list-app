@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router'
 import logo from '../../../assets/images/logo.svg'
 import styles from './AppHeader.module.css'
 
@@ -15,12 +16,12 @@ function AppHeader() {
 						/>
 					</div>
 					<nav className={styles.nav}>
-						<ul className={styles.headerList}>
-							<li className={styles.navItem}>База вопросов</li>
-							<li className={styles.navItem}>Тренажер</li>
-							<li className={styles.navItem}>Материалы</li>
-							<li className={styles.navItem}>Навыки (hh)</li>
-						</ul>
+						<NavLink
+							to="/questions"
+							className={styles.navItem}
+						>
+							База вопросов
+						</NavLink>
 					</nav>
 				</div>
 				<div className={styles.right}>

@@ -81,3 +81,27 @@
 .arrowOpen {
 	transform: rotate(180deg);
 }
+
+.detailLink {
+	display: flex;
+	justify-content: end;
+	gap: 10px;
+	font-weight: 600;
+	cursor: pointer;
+
+	&:hover {
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	a {
+		color: #6a0bff;
+		&:active {
+			color: #6a0bff;
+		}
+		&:visited {
+			color: #6a0bff;
+		}
+	}
+}
