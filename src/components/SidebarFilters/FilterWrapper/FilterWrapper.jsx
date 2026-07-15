@@ -10,12 +10,12 @@ function FilterWrapper({
 }) {
 	const [isShowAll, setIsShowAll] = useState(false)
 	const visibleItems = isShowAll ? items : items.slice(0, 5)
-
 	const isItemActive = id => {
 		if (Array.isArray(selectedValues)) {
-			return selectedValues.includes(id)
+			return selectedValues.map(String).includes(String(id))
 		}
-		return selectedValues === id
+
+		return String(selectedValues) === String(id)
 	}
 
 	return (

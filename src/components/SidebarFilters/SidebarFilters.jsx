@@ -15,7 +15,7 @@ function SidebarFilters({ filters, onFilterChange, filterConfigs }) {
 					title={config.title}
 					onFilterChange={onFilterChange}
 					filterName={config.filterName}
-					selectedValues={filters.specializationId}
+					selectedValues={filters[config.filterName]}
 				/>
 			))}
 		</>

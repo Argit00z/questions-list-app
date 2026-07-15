@@ -2,24 +2,22 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	padding: 40px 20px; /* Отступы сверху/снизу и по бокам на случай узких экранов */
+	padding: 40px 20px;
 	box-sizing: border-box;
 }
 
-/* Общая обертка для кнопки и контента */
 .contentWrapper {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 1200px; /* Задайте максимальную ширину вашего макета */
-	gap: 1.5rem; /* Расстояние между кнопкой назад и основным контентом */
+	max-width: 1200px;
+	gap: 1.5rem;
 }
 
-/* Стилизация кнопки */
 .btnBack {
 	display: inline-flex;
 	align-items: center;
-	align-self: flex-start; /* Кнопка прижимается к левому краю обертки */
+	align-self: flex-start;
 	gap: 10px;
 	color: #6a0bff;
 	background: none;
@@ -35,7 +33,6 @@
 	opacity: 0.8;
 }
 
-/* Контейнер с контентом и сайдбаром */
 .container {
 	display: flex;
 	gap: 1.5rem;

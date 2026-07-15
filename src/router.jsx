@@ -8,13 +8,7 @@ import QuestionListPage from './pages/QuestionListPage/QuestionListPage'
 export const router = createBrowserRouter([
 	{
 		path: ROUTES.HOME,
-		element: (
-			// <Navigate
-			// 	to={ROUTES.QUESTIONS.BASE}
-			// 	replace
-			// />
-			<AppLayout />
-		),
+		element: <AppLayout />,
 		children: [
 			{
 				path: ROUTES.QUESTIONS.BASE,

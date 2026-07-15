@@ -8,12 +8,17 @@ function AppHeader() {
 			<div className={styles.main}>
 				<div className={styles.left}>
 					<div className={styles.logo}>
-						<img
-							src={logo}
-							alt="logo"
-							width={172}
-							className={styles.logoImage}
-						/>
+						<NavLink
+							to="/"
+							className={styles.navItem}
+						>
+							<img
+								src={logo}
+								alt="logo"
+								width={172}
+								className={styles.logoImage}
+							/>
+						</NavLink>
 					</div>
 					<nav className={styles.nav}>
 						<NavLink

@@ -22,6 +22,7 @@
 	border-radius: 12px;
 	max-width: max-content;
 	cursor: pointer;
+	border: solid 1px #6a0bff;
 	&:hover {
 		background-color: #6a0bff;
 		border-color: #6a0bff;
@@ -38,4 +39,28 @@
 	color: #6a0bff;
 	font-size: 14px;
 	text-decoration: underline;
+}
+
+.questionMetrics {
+	display: flex;
+	gap: 2rem;
+}
+
+.metrics {
+	display: flex;
+	background-color: #f8f8f8;
+	padding: 6px 10px 6px 10px;
+	border-radius: 8px;
+	gap: 12px;
+}
+
+.metricsMark {
+	color: #ffffff;
+	padding: 2px 4px 2px 4px;
+	background-color: #6a0bff;
+	border-radius: 4px;
+}
+
+.keywords {
+	color: #6a0bff;
 }
